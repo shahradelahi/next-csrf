@@ -14,7 +14,6 @@ First create a really random string and assaign it to the `NEXT_CSRF_SECRET` env
 
 ```text
 // .env.local
-
 ##
 # You can you the following to generate a random string
 # openssl rand -base64 32
@@ -43,7 +42,7 @@ configureCSRF({
         /^\/((?!_next\/static|_next\/image|favicon.ico|.*\.(?:svg|png|jpg|jpeg|gif|webp)$).*)/,
       ignoreMethods: ['GET', 'HEAD', 'OPTIONS']
     },
-    // Strictly Protect API routes
+    // Strictly protect API routes.
     {
       pattern: /^\/api\/.*/,
       ignoreMethods: []
@@ -65,12 +64,12 @@ export default withCSRFProtection(async (req: NextRequest) => {
 Now you are all set! you can test it with following `curl` commands:
 
 ```bash
-$ curl --location --request GET 'http://localhost:3000/api/protected'
+$ curl --request GET 'http://localhost:3000/api/protected'
 
 # Response
 # CSRF Verification Failed.
 
-$ curl --location --request GET 'http://localhost:3000/api/protected' \
+$ curl --request GET 'http://localhost:3000/api/protected' \
   --cookie "next-csrf=FIehA1zS-LPbO2NcJksFJCUkbn89fUWS33qarn_B98PU2olbG-j0"
 
 # Response
