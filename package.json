@@ -1,0 +1,73 @@
+{
+  "name": "@se-oss/next-csrf",
+  "version": "0.0.0",
+  "description": "A robust and configurable CSRF protection library for Next.js applications.",
+  "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
+  "license": "MIT",
+  "repository": "github:shahradelahi/next-csrf",
+  "homepage": "https://github.com/shahradelahi/next-csrf#readme",
+  "keywords": [
+    "nextjs",
+    "next",
+    "csrf",
+    "csrf-protection",
+    "tokens",
+    "security"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/**"
+  ],
+  "packageManager": "pnpm@8.15.7",
+  "scripts": {
+    "build": "tsup && tsup --dts-only --format esm",
+    "test": "mocha \"**/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "lint": "pnpm typecheck && eslint .",
+    "lint:fix": "eslint --fix .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "prepublishOnly": "pnpm test && pnpm lint && pnpm format:check && pnpm build"
+  },
+  "dependencies": {
+    "@se-oss/rand": "^1.0.0",
+    "@se-oss/sha256": "^1.0.0",
+    "cookie": "^0.6.0",
+    "deepmerge": "^4.3.1",
+    "next": "^14",
+    "next-extra": "^0.4.0"
+  },
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@sindresorhus/tsconfig": "^6.0.0",
+    "@types/chai": "^4.3.16",
+    "@types/cookie": "^0.5.4",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.9",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "chai": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "mocha": "^10.5.2",
+    "prettier": "^3.3.2",
+    "tinybench": "^2.8.0",
+    "tsup": "^8.1.0",
+    "tsx": "^4.15.8",
+    "typescript": "^5.5.2"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
