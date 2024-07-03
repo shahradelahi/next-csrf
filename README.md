@@ -10,12 +10,12 @@ npm i @se-oss/next-csrf
 
 ## Integration
 
-First create a really random string and assaign it to the `NEXT_CSRF_SECRET` environment variable.
+First create a really random string and assign it to the `NEXT_CSRF_SECRET` environment variable.
 
 ```text
 // .env.local
 ##
-# You can you the following to generate a random string
+# You can use the following to generate a random string
 # openssl rand -base64 32
 ##
 NEXT_CSRF_SECRET=""
@@ -40,12 +40,12 @@ configureCSRF({
     {
       pattern:
         /^\/((?!_next\/static|_next\/image|favicon.ico|.*\.(?:svg|png|jpg|jpeg|gif|webp)$).*)/,
-      ignoreMethods: ['GET', 'HEAD', 'OPTIONS']
+      ignoredMethods: ['GET', 'HEAD', 'OPTIONS']
     },
     // Strictly protect API routes.
     {
       pattern: /^\/api\/.*/,
-      ignoreMethods: []
+      ignoredMethods: false
     }
   ],
   csrfErrorMessage: 'CSRF Verification Failed.',
@@ -61,7 +61,7 @@ export default withCSRFProtection(async (req: NextRequest) => {
 });
 ```
 
-Now you are all set! you can test it with following `curl` commands:
+Now you are all set! You can test it with following `curl` commands:
 
 ```bash
 $ curl --request GET 'http://localhost:3000/api/protected'

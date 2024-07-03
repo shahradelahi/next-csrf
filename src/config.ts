@@ -3,7 +3,7 @@ import deepmerge from 'deepmerge';
 import { DEFAULT_MATCHER } from './constants';
 import { NextCSRFConfig } from './typings';
 
-export let NEXT_CSRF_CONFIG: NextCSRFConfig = {
+let NEXT_CSRF_CONFIG: NextCSRFConfig = {
   cookieOptions: {
     httpOnly: true,
     sameSite: 'lax',
@@ -26,4 +26,8 @@ export function configureCSRF(config: NextCSRFConfig = {}) {
       return source;
     }
   });
+}
+
+export function getCSRFConfig() {
+  return NEXT_CSRF_CONFIG;
 }

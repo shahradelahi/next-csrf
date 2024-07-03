@@ -1,7 +1,7 @@
-import { NEXT_CSRF_CONFIG } from './config';
+import { getCSRFConfig } from './config';
 
 export function politeLog(...args: unknown[]) {
-  if (NEXT_CSRF_CONFIG.verbose) {
+  if (getCSRFConfig().verbose) {
     console.log(...args); // eslint-disable-line no-console
   }
 }
