@@ -1,6 +1,6 @@
 {
   "name": "@se-oss/next-csrf",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A robust and configurable CSRF protection library for Next.js applications.",
   "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
   "license": "MIT",
