@@ -26,5 +26,5 @@ export interface Matcher {
 type MatcherHandlerFn = (req: NextRequest) => Promise<boolean> | boolean;
 
 export interface MiddlewareFn {
-  (req: NextRequest): Promise<NextResponse> | NextResponse;
+  (req: NextRequest): Promise<NextResponse> | NextResponse | any;
 }
